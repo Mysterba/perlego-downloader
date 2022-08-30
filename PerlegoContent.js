@@ -2,14 +2,11 @@ function printPages(start, end) {
     document.querySelector("style").remove();
     let printContents = "";
     let i = start;
+    
     function downloadPage() {
         setTimeout(()=>{
-            let content = document.querySelector(`div[data-chapterid='${i}']`);
-            content.scrollIntoView();
-            if (content.querySelector(".pdfplaceholder") == null) {
-                printContents += content.innerHTML + "<br>";
-                i++;
-            }
+        let pageText = document.getElementById('content').innerText;
+        printContents += pageText;
             if (i <= end) {
                 downloadPage();
             }
