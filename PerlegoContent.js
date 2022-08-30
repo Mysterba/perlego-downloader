@@ -1,4 +1,4 @@
-function printPages(start, end) {
+function printPages(baseUrl, start, end) {
     document.querySelector("style").remove();
     let printContents = "";
     let i = start;
@@ -8,6 +8,7 @@ function printPages(start, end) {
         let pageText = document.getElementById('content').innerText;
         printContents += pageText;
             if (i <= end) {
+                location.href = baseUrl+=i;
                 downloadPage();
             }
             if (i == end + 1) {
